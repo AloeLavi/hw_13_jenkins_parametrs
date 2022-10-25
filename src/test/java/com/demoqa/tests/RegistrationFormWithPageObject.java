@@ -48,6 +48,7 @@ public class RegistrationFormWithPageObject extends TestBase {
     }
 
     @Test
+     @Tag("choose_properties")
     @DisplayName("Заполнение формы данных по студенту на demoqa.com")
     void fillNameTest(){
 

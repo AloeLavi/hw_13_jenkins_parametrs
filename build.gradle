@@ -49,6 +49,8 @@ tasks.withType(JavaCompile) {
 }
 
 tasks.withType(Test) {
+    systemProperties(System.getProperties()) // Без нее параметры из командной строки
+                                            // не будут передаваться в скрипт сборки.
     useJUnitPlatform()
 
     testLogging {
@@ -56,5 +58,13 @@ tasks.withType(Test) {
             events "started", "skipped", "failed", "standard_error", "standard_out"
             exceptionFormat "short"
         }
+    }
+}
+
+// properties
+
+task choose_properties(type: Test) {
+    useJUnitPlatform {
+        includeTags "choose_properties"
     }
 }

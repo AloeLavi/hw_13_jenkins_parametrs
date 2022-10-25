@@ -25,6 +25,8 @@ public class TestBase {
         Configuration.browserCapabilities = capabilities;
 
         Configuration.baseUrl = "https://demoqa.com";
+        String browserName = System.getProperty("browser", "opera");
+        Configuration.browser= browserName;
         Configuration.browserSize = "1600x800";
         Configuration.holdBrowserOpen = true;
         Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
