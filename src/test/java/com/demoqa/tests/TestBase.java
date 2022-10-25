@@ -34,9 +34,11 @@ public class TestBase {
         Configuration.browserVersion= browserVersion;
         Configuration.browserSize = browserSize;
         Configuration.holdBrowserOpen = true;
-        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
+   //     Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
 
-
+        if(System.getProperty("remote")!= null ){
+            Configuration.remote = System.getProperty("remote");
+        }
     }
 
     @AfterEach
