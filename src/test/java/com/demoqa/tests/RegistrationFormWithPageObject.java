@@ -14,7 +14,7 @@ import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static io.qameta.allure.Allure.step;
 
 
-public class RegistrationFormWithPageObject {
+public class RegistrationFormWithPageObject extends TestBase {
     RegistrationFormPage registrationFormPage = new RegistrationFormPage();
 
     String firstName;
@@ -45,37 +45,6 @@ public class RegistrationFormWithPageObject {
         month = RandomUtils.getRandomMonth();
         year = String.valueOf(faker.number().numberBetween(1980,2010));
 
-    }
-
-    @BeforeAll
-    static void setUp() {
-
-        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        //        capabilities.setCapability("browserName", "chrome");
-        //        capabilities.setCapability("browserVersion", "100.0");
-        capabilities.setCapability("enableVNC", true);
-        capabilities.setCapability("enableVideo", true);
-        Configuration.browserCapabilities = capabilities;
-
-
-        Configuration.baseUrl = "https://demoqa.com";
-        Configuration.browserSize = "1600x800";
-        Configuration.holdBrowserOpen = true;
-        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
-
-    }
-
-    @AfterEach
-    void addAttachments() {
-        Attach.screenshotAs("Last screenshot");
-        Attach.pageSource();
-        Attach.browserConsoleLogs();
-       Attach.addVideo();
-    }
-    @AfterAll
-   static void CloseBrowser(){
-        closeWebDriver();
     }
 
     @Test
