@@ -29,6 +29,7 @@ public class TestBase {
         String browserName = System.getProperty("browser", "chrome");
         String browserVersion = System.getProperty("browserVersion", "100");
         String browserSize = System.getProperty("browserSize",  "1600x800");
+        String remote = System.getProperty("remote");
 
         Configuration.browser= browserName;
         Configuration.browserVersion= browserVersion;
@@ -36,8 +37,8 @@ public class TestBase {
         Configuration.holdBrowserOpen = true;
    //     Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
 
-        if(System.getProperty("remote")!= null ){
-            Configuration.remote = System.getProperty("remote");
+        if(remote!= null ){
+            Configuration.remote = remote;
         }
     }
 
